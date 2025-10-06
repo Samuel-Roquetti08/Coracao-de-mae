@@ -30,44 +30,82 @@
 
 /* Centraliza o conteúdo da navbar e aplica o layout flex */
 .header-container {
-    max-width: 1200px; /* Define uma largura máxima para o conteúdo */
-    margin: 0 auto; /* Centraliza o container */
-    padding: 0 2rem; /* Adiciona espaçamento nas laterais */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
 }
 
-/* Estiliza o logo */
 .logo {
-    font-family: var(--fonte-titulo);
-    font-size: 2rem;
-    color: var(--cor-texto);
-    margin: 0; /* Remove margens padrão do h1 */
+  font-family: var(--fonte-titulo);
+  font-size: 2rem;
+  color: var(--cor-texto);
+  margin: 0;
 }
 
-/* Estiliza a lista de links */
+/* --- Lista de navegação --- */
 .nav-list {
-    list-style: none; /* Remove os pontos da lista */
-    margin: 0;
-    padding: 0;
-    display: flex; /* Alinha os itens da lista horizontalmente */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
 }
 
-/* Estiliza cada link da navegação */
 .nav-link {
-    font-family: var(--fonte-texto);
-    color: var(--cor-texto);
-    text-decoration: none; /* Remove o sublinhado padrão */
-    margin-left: 1.5rem;
-    font-weight: 700;
-    font-size: 1rem;
-    transition: color 0.3s ease;
+  font-family: var(--fonte-texto);
+  color: var(--cor-texto);
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: color 0.3s ease;
 }
 
-/* Efeito hover para os links */
 .nav-link:hover {
-    color: var(--cor-terracota);
+  color: var(--cor-terracota);
+}
+
+/* --- Ícone do menu (hambúrguer) --- */
+.menu-icon {
+  display: none; /* some em telas grandes */
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--cor-texto);
+}
+
+.menu-toggle {
+  display: none;
+}
+
+/* --- Responsividade --- */
+@media (max-width: 768px) {
+  .header-container {
+    flex-wrap: wrap;
+  }
+
+  /* Esconde o menu por padrão */
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    background-color: var(--cor-fundo, white);
+    padding: 1rem 0;
+  }
+
+  /* Mostra o ícone do menu */
+  .menu-icon {
+    display: block;
+  }
+
+  /* Exibe o menu quando o checkbox está marcado */
+  .menu-toggle:checked + .menu-icon + nav .nav-list {
+    display: flex;
+  }
+
+  .nav-link {
+    margin: 1rem 0;
+  }
 }
 
 /* Sections */
